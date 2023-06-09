@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios
+import axios from 'axios';
 
 const QueryManage = () => {
         const [urls, setUrls] = useState([]);
