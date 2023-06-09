@@ -6,11 +6,10 @@ const QueryManage = () => {
         const [numbers, setNumbers] = useState([]);
       
         const fetchNumbers = async () => {
+            
           try {
-            const response = await axios.get('http://localhost:8008/numbers', {
-              params: {
+            const response = await axios.get({
                 url: urls
-              }
             });
             const data = response.data;
             setNumbers(data);
@@ -20,8 +19,12 @@ const QueryManage = () => {
         };
       
         const URLinput = (event) => {
-          const { value } = event.target;
-          setUrls(value.split('&url='));
+            const inputValue = event.target.value;
+            const newUrls = inputValue
+              .split('&url=')
+              .map(url => url.replace('http://localhost:3001/numbers?url=', ''));
+        
+            setUrls(newUrls);
         };
   return (
     <div><div className='flex justify-center h-screen items-center '>

@@ -1,8 +1,24 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import QueryManage from './components/QueryManage'
 
 const App = () => {
+
+
+
   return (
-    <QueryManage />
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<QueryManage />} />
+
+    </Routes>
+    </BrowserRouter>
+    
+</>
+
+
+
+    
   )
 }
 
